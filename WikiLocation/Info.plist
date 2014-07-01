@@ -28,7 +28,7 @@
 	<array>
 		<string>armv7</string>
 	</array>
-	<key>NSLocationAlwaysUsageDescription</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>WikiLocation needs your current location to show Wikipedia article nearby</string>
 </dict>
 </plist>

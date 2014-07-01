@@ -42,7 +42,7 @@ class GeoManager : NSObject, CLLocationManagerDelegate {
     //#pragma mark - Start & Stop
     func startAll() {
         
-        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
         
         if self.isLocatingAllowed() {
             self.locationManager.delegate = self
