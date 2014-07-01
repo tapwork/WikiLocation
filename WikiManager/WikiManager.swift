@@ -51,7 +51,6 @@ class WikiManager : NSObject {
         let url = NSURL(string: fullURLString)
         
         self.downloadURL(url: url,completion: {(data, error) in
-            // SWIFT-Q: Why has NSJSONSerialization no type information, can cause many bugs later
             var error:NSError?
             var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error:&error) as Dictionary<String,AnyObject>
             var articles = NSMutableOrderedSet()
