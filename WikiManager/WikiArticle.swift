@@ -14,7 +14,7 @@ class WikiArticle : NSObject {
     let latitutde:Double!
     let longitude:Double!
     let url:NSURL!
-    let title:String!
+    let title:String = "" // we force a value to avoid nil
     let type:String!
     
     //#pragma mark - Init
