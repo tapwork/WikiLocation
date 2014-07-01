@@ -23,7 +23,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GeoManager.sharedInstance.startAll()
+        GeoManager.sharedInstance.start()
         geoManager.addObserver(self, forKeyPath: "location", options: NSKeyValueObservingOptions.New, context: nil)
     }
     

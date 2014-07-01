@@ -40,7 +40,7 @@ class GeoManager : NSObject, CLLocationManagerDelegate {
     }
     
     //#pragma mark - Start & Stop
-    func startAll() {
+    func start() {
         
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -51,7 +51,7 @@ class GeoManager : NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func stopAll() {
+    func stop() {
         self.locationManager.stopUpdatingLocation()
         self.locationManager.delegate = nil
     }
@@ -83,12 +83,12 @@ class GeoManager : NSObject, CLLocationManagerDelegate {
     
     //#pragma mark - Notifications
     func didEnterBackground(notification:AnyObject) {
-        self.locationManager.stopUpdatingLocation()
+        self.stop()
         // also destroy the latest location - we refresh when coming into foreground
         self.location = nil
     }
     
     func didEnterForeground(notification:AnyObject) {
-        self.locationManager.startUpdatingLocation()
+        self.start()
     }
 }
