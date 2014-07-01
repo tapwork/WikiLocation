@@ -15,8 +15,8 @@ let kCellID = "WikiTableViewCellID"
 
 
 class ViewController: UITableViewController {
-    
-    let geoManager = GeoManager.sharedInstance
+        
+    @lazy var geoManager = GeoManager.sharedInstance
     var dataSource = WikiArticle[]()
     
     //#pragma mark - View life cycle
