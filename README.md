@@ -20,7 +20,7 @@ Provides a model for the WikiArticles, fetches the Wiki articles from the API. H
 ### Some Swift patterns
 When you start working with Swift you may notice that there are different patterns compared to Objective C.
 ####Singleton 
-``
+```  Swift
 class var sharedInstace : GeoManager {
 	struct SharedInstance {
         static let instance = GeoManager()
@@ -28,12 +28,12 @@ class var sharedInstace : GeoManager {
         return SharedInstance.instance
     }
 }
-``
+```
 The singleton pattern changes a bit in Swift. We could use the dispatch_once pattern. But a shorter way in Swift is the struct and a static var. At this time Swift does not really provide class variables. XCode 6 says "Class variables not yet supported". Looks like that this will come later. But Swift provides type methods. Type methods are equivalent to the class methods + (void)method in Objective C. Structs and enumerations also provides type properties with the static keyword. Type properties can "store a value that is global to all instances of that type (like a static variable in C).” Excerpt From: Apple Inc. “The Swift Programming Language.” iBooks.
 So we can go the way with a struct and a read only type property. Swift provides the static keyword in structs which we can use to create to a constant type variable in the struct 'SharedInstance'. The struct is little a helper to enable class typed variables like we know it from C with static. I think the type property and the pattern is still under little construction and will be changed in the near future.
 
 ####JSON Parsing 
-``
+```  Swift
 var error:NSError?
 var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error:&error) as Dictionary<String,AnyObject>
 var articles = NSMutableOrderedSet()
@@ -43,7 +43,7 @@ if let jsonarticles = jsonResult["articles"] as? NSArray {
     articles.addObject(article)
     }
 }
-``
+```
 Because Swift is strict about types, we need to check and cast a lot. This is one of the biggest differences to Objective C in this example app.
 We access the ``jsonResult`` via the subscript ``"articles"`` and check with ``if let`` for the NSArray type (NSJSONSerialization uses Foundation objects).
 In the for loop we initialize the model object ``WikiArticle`` with a casted Dictionary.
