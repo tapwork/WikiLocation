@@ -23,7 +23,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GeoManager.sharedInstance.start()
+        self.geoManager.start()
         geoManager.addObserver(self, forKeyPath: "location", options: NSKeyValueObservingOptions.New, context: nil)
     }
     
@@ -46,8 +46,8 @@ class ViewController: UITableViewController {
     
     func loadWikisNearBy() {
         
-        if GeoManager.sharedInstance.location {
-            let location = GeoManager.sharedInstance.location!
+        if self.geoManager.location {
+            let location = self.geoManager.location!
             WikiManager.sharedInstance.downloadWikis(
                 latitude: location.coordinate.latitude,
                 longitude: location.coordinate.longitude,
