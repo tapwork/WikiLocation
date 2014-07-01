@@ -47,3 +47,23 @@ if let jsonarticles = jsonResult["articles"] as? NSArray {
 Because Swift is strict about types, we need to check and cast a lot. This is one of the biggest differences to Objective C in this example app.
 We access the ``jsonResult`` via the subscript ``"articles"`` and check with ``if let`` for the NSArray type (NSJSONSerialization uses Foundation objects).
 In the for loop we initialize the model object ``WikiArticle`` with a casted Dictionary.
+
+####Variable declaration, initialization and lazy loading
+```  Swift
+class ViewController: UITableViewController {
+    
+    @lazy var geoManager = GeoManager.sharedInstance
+    var dataSource = WikiArticle[]()
+
+	override func viewDidLoad() {
+	    super.viewDidLoad()
+
+	    self.geoManager.start()
+	    geoManager.addObserver(self, forKeyPath: "location", options: NSKeyValueObservingOptions.New, context: nil)
+	}
+    .....
+}
+```
+The ``geoManager`` will be initialized lazy. That means that the instance for the property will be created when we access the property the first time (in viewDidLoad).
+The dataSource property will be initialized directly.
+Initializing properties in the declaration is new to Objective C developers.
