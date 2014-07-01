@@ -14,6 +14,7 @@ class GeoManager : NSObject, CLLocationManagerDelegate {
     //#pragma mark - Properties
     var locationManager:CLLocationManager = CLLocationManager()
     var location:CLLocation?
+    var locationAuthorized = false
     
     class var sharedInstance: GeoManager {
     struct SharedInstance {
@@ -45,6 +46,7 @@ class GeoManager : NSObject, CLLocationManagerDelegate {
         self.locationManager.requestWhenInUseAuthorization()
         
         if self.isLocatingAllowed() {
+            self.locationAuthorized = true
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = 300  // Meter
             self.locationManager.startUpdatingLocation()
@@ -57,11 +59,14 @@ class GeoManager : NSObject, CLLocationManagerDelegate {
     }
     
     func isLocatingAllowed() -> Bool {
-        var allowed = true
-        if CLLocationManager.locationServicesEnabled() == false {
-            allowed = false
+        var allowed = false
+
+        if CLLocationManager.locationServicesEnabled() == true {
+            allowed = true
         }
-        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Denied {
+        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+            allowed = true
+        } else {
             allowed = false
         }
         
@@ -79,6 +84,13 @@ class GeoManager : NSObject, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         
+    }
+    
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if (!self.locationAuthorized && status == .AuthorizedWhenInUse) {
+            // Location service was not enabled before - now start the location service again
+            self.start()
+        }
     }
     
     //#pragma mark - Notifications
