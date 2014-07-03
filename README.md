@@ -14,7 +14,7 @@ WebViewController with an UIWebView: showing the selected article in a pushed we
 ####GeoLocation Manager
 Retrieves the user's location, stops after we got the coordinates. Stops updating location when going into background, refreshes the location when coming into foreground.
 TableViewController observes the location property to load new articles when the location changes.
-####Network Manger
+####Network Manager
 Provides a model for the WikiArticles, fetches the Wiki articles from the API. Handles the JSON parsing and mapping with our model
 
 ### Some Swift patterns
@@ -45,7 +45,7 @@ if let jsonarticles = jsonResult["articles"] as? NSArray {
 }
 ```
 Because Swift is strict about types, we need to check and cast a lot. This is one of the biggest differences to Objective C in this example app.
-We access the ``jsonResult`` via the subscript ``"articles"`` and check with ``if let`` for the NSArray type (NSJSONSerialization uses Foundation objects).
+We access the ``jsonResult`` via the subscript ``articles`` and check with ``if let`` for the NSArray type (NSJSONSerialization uses Foundation objects).
 In the for loop we initialize the model object ``WikiArticle`` with a casted Dictionary.
 
 ####Variable declaration, initialization and lazy loading
@@ -59,7 +59,7 @@ class ViewController: UITableViewController {
 	    super.viewDidLoad()
 
 	    self.geoManager.start()
-	    geoManager.addObserver(self, forKeyPath: "location", options: NSKeyValueObservingOptions.New, context: nil)
+	    self.geoManager.addObserver(self, forKeyPath: "location", options: NSKeyValueObservingOptions.New, context: nil)
 	}
     .....
 }
