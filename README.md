@@ -6,7 +6,7 @@ WikiLocation - A geolocation based wikipedia app written in Swift
 This little app demonstrates how easy it is to create an iOS app with Swift and the new iOS frameworks.
 What is this app about? As the name implies, it uses your current location and provides nearby Wikipedia articles. (Buildings, lakes and so on). Straight forward. Not too much magic.
 This mini app covers ViewControllers, Views & Models in Swift and custom new iOS Frameworks :
-
+There is also a more detailed blog post http://www.cmenschel.de/lets-build-an-app-in-swift about this app.
 ###ViewControllers in Swift
 TableViewController with an UITableView: Shows the Wiki articles nearby in a simple list.
 WebViewController with an UIWebView: showing the selected article in a pushed webView
