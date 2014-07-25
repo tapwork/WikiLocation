@@ -9,16 +9,16 @@
 import Foundation
 import CoreLocation
 
-class GeoManager : NSObject, CLLocationManagerDelegate {
+public class GeoManager : NSObject, CLLocationManagerDelegate {
     
     //#pragma mark - Properties
     var locationManager:CLLocationManager = CLLocationManager()
-    var location:CLLocation?
+    private(set)  var location:CLLocation?
     var locationAuthorized = false
     
-    class var sharedInstance: GeoManager {
-    struct SharedInstance {
-        static let instance = GeoManager()
+    public class var sharedInstance: GeoManager {
+        struct SharedInstance {
+            static let instance = GeoManager()
         }
         return SharedInstance.instance
     }
@@ -41,26 +41,25 @@ class GeoManager : NSObject, CLLocationManagerDelegate {
     }
     
     //#pragma mark - Start & Stop
-    func start() {
-        
+    public func start() {
         self.locationManager.requestWhenInUseAuthorization()
         
         if self.isLocatingAllowed() {
             self.locationAuthorized = true
             self.locationManager.delegate = self
-            self.locationManager.desiredAccuracy = 300  // Meter
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest  // Meter
             self.locationManager.startUpdatingLocation()
         }
     }
     
-    func stop() {
+    public func stop() {
         self.locationManager.stopUpdatingLocation()
         self.locationManager.delegate = nil
     }
     
     func isLocatingAllowed() -> Bool {
         var allowed = false
-
+        
         if CLLocationManager.locationServicesEnabled() == true {
             allowed = true
         }
@@ -74,19 +73,18 @@ class GeoManager : NSObject, CLLocationManagerDelegate {
     }
     
     //#pragma mark - CLLocationManagerDelegate
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: AnyObject[]!) {
-        
-        if locations.count > 0 && self.location == nil {
+    public func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+            if locations.count > 0 && self.location == nil {
             self.location = locations[0] as? CLLocation
             self.locationManager.stopUpdatingLocation()
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+    public func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         
     }
     
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    public func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if (!self.locationAuthorized && status == .AuthorizedWhenInUse) {
             // Location service was not enabled before - now start the location service again
             self.start()
