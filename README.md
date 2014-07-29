@@ -1,6 +1,10 @@
 WikiLocation
 ============
 
+#### Update Beta 4
+Apple added some new features with Beta 4: new Array handling, Access Control (public, internal, private) or lazy keyword without @. This means that this example app does not compile with Beta 4. Right now I am on holiday and don't have time to adapt the changes. 
+Feel free to send Pull Requests or just wait.
+
 WikiLocation - A geolocation based wikipedia app written in Swift
 
 This little app demonstrates how easy it is to create an iOS app with Swift and the new iOS frameworks.
