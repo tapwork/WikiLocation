@@ -11,20 +11,22 @@ import CoreLocation
 
 public class GeoManager : NSObject, CLLocationManagerDelegate {
     
-    //#pragma mark - Properties
-    var locationManager:CLLocationManager = CLLocationManager()
-    private(set)  var location:CLLocation?
+
+    //MARK: - Properties
+    public var locationManager:CLLocationManager = CLLocationManager()
+    //private(set)  var location:CLLocation?
+    public var location:CLLocation?
     var locationAuthorized = false
-    
     public class var sharedInstance: GeoManager {
-        struct SharedInstance {
-            static let instance = GeoManager()
+    struct SharedInstance {
+        static let instance = GeoManager()
         }
         return SharedInstance.instance
     }
     
-    //#pragma mark - Init & deinit
-    init() {
+    
+    //MARK: - Init & deinit
+    override init() {
         super.init()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterBackground:",
@@ -40,14 +42,13 @@ public class GeoManager : NSObject, CLLocationManagerDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    //#pragma mark - Start & Stop
+    //MARK: - Start & Stop
     public func start() {
-        self.locationManager.requestWhenInUseAuthorization()
         
+        self.locationManager.requestWhenInUseAuthorization()
         if self.isLocatingAllowed() {
-            self.locationAuthorized = true
             self.locationManager.delegate = self
-            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest  // Meter
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
             self.locationManager.startUpdatingLocation()
         }
     }
@@ -58,24 +59,24 @@ public class GeoManager : NSObject, CLLocationManagerDelegate {
     }
     
     func isLocatingAllowed() -> Bool {
-        var allowed = false
-        
-        if CLLocationManager.locationServicesEnabled() == true {
-            allowed = true
+        var allowed = true
+        if CLLocationManager.locationServicesEnabled() == false {
+            allowed = false
         }
-        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
-            allowed = true
-        } else {
+        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Denied {
             allowed = false
         }
         
         return allowed
     }
     
-    //#pragma mark - CLLocationManagerDelegate
+    //MARK: - CLLocationManagerDelegate
     public func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-            if locations.count > 0 && self.location == nil {
+        
+        if locations.count > 0 && self.location == nil {
+            self.willChangeValueForKey("location")
             self.location = locations[0] as? CLLocation
+            self.didChangeValueForKey("location")
             self.locationManager.stopUpdatingLocation()
         }
     }
@@ -91,14 +92,14 @@ public class GeoManager : NSObject, CLLocationManagerDelegate {
         }
     }
     
-    //#pragma mark - Notifications
+    //MARK: - Notifications
     func didEnterBackground(notification:AnyObject) {
-        self.stop()
+        self.locationManager.stopUpdatingLocation()
         // also destroy the latest location - we refresh when coming into foreground
         self.location = nil
     }
     
     func didEnterForeground(notification:AnyObject) {
-        self.start()
+        self.locationManager.startUpdatingLocation()
     }
 }

@@ -10,57 +10,44 @@ import UIKit
 import GeoManager
 import WikiManager
 
-
+let kSegueIdentifier = "ShowWebDetails"
 let kCellID = "WikiTableViewCellID"
 
-
 class ViewController: UITableViewController {
-        
-    @lazy var geoManager = GeoManager.sharedInstance
-    var dataSource = WikiArticle[]()
     
-    //#pragma mark - View life cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.geoManager.start()
-        geoManager.addObserver(self, forKeyPath: "location", options: NSKeyValueObservingOptions.New, context: nil)
-    }
+    //MARK: - Properties
+    let geoManager = GeoManager.sharedInstance
+    var dataSource = [WikiArticle]()
     
+    
+    //MARK: - Init & deinit
     deinit {
         geoManager.removeObserver(self, forKeyPath: "location")
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    //#pragma mark - KVO
-    override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: NSDictionary!, context: CMutableVoidPointer) {
-        
-        if object === geoManager && keyPath == "location" {
-            self.loadWikisNearBy()
-        }
+    //MARK: - View life cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        geoManager.addObserver(self, forKeyPath: "location", options: .New, context: nil)
+        GeoManager.sharedInstance.start()
     }
     
     func loadWikisNearBy() {
         
-        if self.geoManager.location {
-            let location = self.geoManager.location!
+        if let location = GeoManager.sharedInstance.location {
             WikiManager.sharedInstance.downloadWikis(
                 latitude: location.coordinate.latitude,
                 longitude: location.coordinate.longitude,
-                completion: {(articles:WikiArticle[]) in
+                completion: {(articles:[WikiArticle]) in
                     
                     self.dataSource = articles
                     self.tableView.reloadData()
                     
-                })
+            })
         }
     }
     
-    //#pragma mark - TableView
+    //MARK: - TableView
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -92,6 +79,23 @@ let kSegueIdentifier = "ShowWebDetails"
                 webViewController.url = article.url
             }
         }
+    }
+    
+    //MARK: - Memory
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    //MARK: - KVO
+    override func observeValueForKeyPath(keyPath: String!,
+        ofObject object: AnyObject!,
+        change: [NSObject : AnyObject]!, context: UnsafeMutablePointer<()>) {
+            
+            if object === geoManager && keyPath == "location" {
+                self.loadWikisNearBy()
+            }
     }
 }
 

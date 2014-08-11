@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F7FF845D-59D7-462C-BDB2-E4C0506CE1D2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>WikiLocation</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D0EEAB89B96FB266AECD8FB05DC94CD974827E2B</key>
+		<string>github.com:tapwork/WikiLocation.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>WikiLocation.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D0EEAB89B96FB266AECD8FB05DC94CD974827E2B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:tapwork/WikiLocation.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D0EEAB89B96FB266AECD8FB05DC94CD974827E2B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D0EEAB89B96FB266AECD8FB05DC94CD974827E2B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WikiLocation</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -6,18 +6,20 @@
 //  Copyright (c) 2014 enterprise. All rights reserved.
 //
 
-class WikiArticle : NSObject {
+import Foundation
+
+public class WikiArticle : NSObject {
     
-    //#pragma mark - Properties
-    let distance:String!
-    let id:Integer!
-    let latitutde:Double!
-    let longitude:Double!
-    let url:NSURL!
-    let title:String = "" // we force a value to avoid nil
-    let type:String!
+    //Mark: - Properties
+    public let distance:String!
+    public let identifier:Int!
+    public let latitutde:Double!
+    public let longitude:Double!
+    public let url:NSURL!
+    public let title:String!
+    public let type:String!
     
-    //#pragma mark - Init
+    //MARK: - Init
     init(json:Dictionary<String,AnyObject>) {
         super.init()
         
@@ -35,7 +37,7 @@ class WikiArticle : NSObject {
             
         }
         if let id = json["id"] as? NSString {
-            self.id = id.integerValue
+            self.identifier = id.integerValue
         }
         if let latitutde = json["lat"] as? NSString {
             self.latitutde = latitutde.doubleValue
@@ -45,12 +47,12 @@ class WikiArticle : NSObject {
         }
     }
     
-    //#pragma mark - Equality
+    //MARK: - Equality
     func hash() -> Int {
         return self.title.hash
     }
     
-    override func isEqual(object: AnyObject!) -> Bool {
+    override public func isEqual(object: AnyObject!) -> Bool {
         if self === object ||
             self.hash == object.hash {
                 return true

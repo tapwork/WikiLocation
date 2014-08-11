@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MKe-tg-pgB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MKe-tg-pgB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Wiki Location-->
+        <!--Wiki Location-->
         <scene sceneID="sem-Md-aEW">
             <objects>
-                <tableViewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="esb-vg-dvH" customClass="ViewController" customModule="WikiLocation" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="esb-vg-dvH" customClass="ViewController" customModule="WikiLocation" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="hu1-rs-yhn">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" restorationIdentifier=" " selectionStyle="default" indentationWidth="10" reuseIdentifier="WikiTableViewCellID" textLabel="Udw-9A-jmo" detailTextLabel="8tQ-q4-OXv" style="IBUITableViewCellStyleSubtitle" id="g7e-Qg-9ST">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier=" " selectionStyle="default" indentationWidth="10" reuseIdentifier="WikiTableViewCellID" textLabel="Udw-9A-jmo" detailTextLabel="8tQ-q4-OXv" style="IBUITableViewCellStyleSubtitle" id="g7e-Qg-9ST">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g7e-Qg-9ST" id="Ufh-Kn-OaE">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -58,11 +57,11 @@
                         <viewControllerLayoutGuide type="bottom" id="QdD-Jo-NSI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="53p-wF-QkX">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FaC-OD-MOG">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
@@ -73,7 +72,6 @@
                             <constraint firstAttribute="trailing" secondItem="FaC-OD-MOG" secondAttribute="trailing" id="nxY-LW-bhh"/>
                             <constraint firstItem="FaC-OD-MOG" firstAttribute="top" secondItem="53p-wF-QkX" secondAttribute="top" id="uJr-Cb-D9v"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
                         <outlet property="webView" destination="FaC-OD-MOG" id="s78-fs-Arc"/>

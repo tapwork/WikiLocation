@@ -10,10 +10,13 @@ import UIKit
 
 class DetailViewController : UIViewController {
     
-    @IBOutlet var webView : UIWebView
+    
+    //MARK: - Properties
+    @IBOutlet var webView : UIWebView!
     var url:NSURL?
+
     
-    
+    //MARK: View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,5 +24,10 @@ class DetailViewController : UIViewController {
             let request = NSURLRequest(URL: anURL)
             self.webView.loadRequest(request)
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }
