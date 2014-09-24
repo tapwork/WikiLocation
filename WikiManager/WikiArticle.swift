@@ -26,7 +26,7 @@ public class WikiArticle : NSObject {
             self.title = title
         }
         if let distance = json["dist"] as? NSNumber {
-            self.distance = NSString(format: "Distance: %.2f", distance.doubleValue)
+            self.distance = NSString(format: "Distance: %.2f Meter", distance.doubleValue)
         }
         if let id = json["pageid"] as? NSNumber {
             self.identifier = id.integerValue
