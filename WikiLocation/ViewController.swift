@@ -60,8 +60,8 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(kCellID) as UITableViewCell
         
         if let article = self.dataSource[indexPath.row] as WikiArticle? {
-            cell.textLabel.text = article.title
-            cell.detailTextLabel.text = article.distance
+            cell.textLabel?.text = article.title
+            cell.detailTextLabel?.text = article.distance
         }
         
         return cell
@@ -69,12 +69,12 @@ class ViewController: UITableViewController {
     
 let kSegueIdentifier = "ShowWebDetails"
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         super.prepareForSegue(segue, sender: sender)
         
         if segue.identifier == kSegueIdentifier {
             let indexPath = self.tableView.indexPathForSelectedRow();
-            if let article = self.dataSource[indexPath.row] as WikiArticle? {
+            if let article = self.dataSource[indexPath!.row] as WikiArticle? {
                 let webViewController:DetailViewController = segue.destinationViewController as DetailViewController
                 webViewController.url = article.url
             }

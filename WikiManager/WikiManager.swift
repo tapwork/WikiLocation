@@ -39,7 +39,7 @@ public class WikiManager : NSObject {
                 completion(data, error)
             })
         });
-        println("Download URL "+url.absoluteString)
+        println("Download URL "+url.absoluteString!)
         
         task.resume()
     }
