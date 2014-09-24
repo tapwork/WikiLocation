@@ -8,7 +8,7 @@
 
 import Foundation
 
-let wikilocationBaseURL = "http://api.wikilocation.org/"
+let kWikilocationBaseURL = "https://en.wikipedia.org/w/api.php?format=json&action=query&list=geosearch&gsradius=10000&gscoord="
 let kBackgrounddownloadID = "net.tapwork.wikilocation.backgrounddownload.config"
 
 
@@ -39,7 +39,6 @@ public class WikiManager : NSObject {
                 completion(data, error)
             })
         });
-        println("Download URL "+url.absoluteString!)
         
         task.resume()
     }
@@ -48,20 +47,21 @@ public class WikiManager : NSObject {
     // NOTE: #major forces first parameter to be named in function call
     public func downloadWikis(#latitude:Double,longitude:Double,completion:(([WikiArticle]) -> Void))  {
         
-        let fullURLString = wikilocationBaseURL +
-        "articles?lat=\(latitude)&lng=\(longitude)&limit=10&radius=500"
+        let path = "\(latitude)%7C\(longitude)"
+        let fullURLString = kWikilocationBaseURL + path
         let url = NSURL(string: fullURLString)
         
         self.downloadURL(url: url) { (data, error) -> Void in
             var articles = NSMutableOrderedSet()
             if (data.length > 0) {
                 var error:NSError?
-                var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error:&error) as Dictionary<String,AnyObject>
-                
-                if let jsonarticles = jsonResult["articles"] as? NSArray {
-                    for item : AnyObject in jsonarticles {
-                        var article = WikiArticle(json: item as Dictionary<String, AnyObject>)
-                        articles.addObject(article)
+                var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error:&error) as NSDictionary
+                if let result = jsonResult["query"] as? NSDictionary {
+                    if let jsonarticles = result["geosearch"]! as? NSArray {
+                        for item : AnyObject in jsonarticles {
+                            var article = WikiArticle(json: item as Dictionary<String, AnyObject>)
+                            articles.addObject(article)
+                        }
                     }
                 }
             }
