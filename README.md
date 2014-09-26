@@ -1,11 +1,6 @@
 WikiLocation
 ============
 
-
-#### Beta 5
-This project builds now with Beta 5 after Apple changed a lot of stuff in Beta 4
-#### Update End
-
 WikiLocation - A geolocation based wikipedia app written in Swift
 
 This little app demonstrates how easy it is to create an iOS app with Swift and the new iOS frameworks.
