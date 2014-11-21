@@ -89,9 +89,9 @@ let kSegueIdentifier = "ShowWebDetails"
     
     
     //MARK: - KVO
-    override func observeValueForKeyPath(keyPath: String!,
-        ofObject object: AnyObject!,
-        change: [NSObject : AnyObject]!, context: UnsafeMutablePointer<()>) {
+    override func observeValueForKeyPath(keyPath: String,
+        ofObject object: AnyObject,
+        change: [NSObject : AnyObject], context: UnsafeMutablePointer<()>) {
             
             if object === geoManager && keyPath == "location" {
                 self.loadWikisNearBy()

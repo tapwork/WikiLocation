@@ -26,6 +26,7 @@
 		DADCCF1C1960597C00F2996C /* WikiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCCF1B1960597C00F2996C /* WikiManager.swift */; };
 		DADCCF1E196059A800F2996C /* WikiArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCCF1D196059A800F2996C /* WikiArticle.swift */; };
 		DADCCF2019605CE900F2996C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCCF1F19605CE900F2996C /* DetailViewController.swift */; };
+		DADDCEB71A1FD74600F23115 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DADDCEB61A1FD74600F23115 /* Launch Screen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		DADCCF1B1960597C00F2996C /* WikiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiManager.swift; sourceTree = "<group>"; };
 		DADCCF1D196059A800F2996C /* WikiArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiArticle.swift; sourceTree = "<group>"; };
 		DADCCF1F19605CE900F2996C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DADDCEB61A1FD74600F23115 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 		DA9ED978195DB9B50061411C = {
 			isa = PBXGroup;
 			children = (
+				DADDCEB61A1FD74600F23115 /* Launch Screen.xib */,
 				DA9ED983195DB9B50061411C /* WikiLocation */,
 				DA9ED996195DB9B50061411C /* WikiLocationTests */,
 				DADCCEA0196056B700F2996C /* GeoManager */,
@@ -528,6 +531,7 @@
 			files = (
 				DA9ED98C195DB9B50061411C /* Main.storyboard in Resources */,
 				DA9ED98E195DB9B50061411C /* Images.xcassets in Resources */,
+				DADDCEB71A1FD74600F23115 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
