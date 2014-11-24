@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DADCCE731960567500F2996C"
-               BuildableName = "GeoManager.framework"
-               BlueprintName = "GeoManager"
+               BlueprintIdentifier = "DADCCEFB1960593000F2996C"
+               BuildableName = "WikiManager.framework"
+               BlueprintName = "WikiManager"
                ReferencedContainer = "container:WikiLocation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DADCCE7D1960567500F2996C"
-               BuildableName = "GeoManagerTests.xctest"
-               BlueprintName = "GeoManagerTests"
+               BlueprintIdentifier = "DADCCF051960593000F2996C"
+               BuildableName = "WikiManagerTests.xctest"
+               BlueprintName = "WikiManagerTests"
                ReferencedContainer = "container:WikiLocation.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -49,6 +49,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "DADCCEFB1960593000F2996C"
+            BuildableName = "WikiManager.framework"
+            BlueprintName = "WikiManager"
+            ReferencedContainer = "container:WikiLocation.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

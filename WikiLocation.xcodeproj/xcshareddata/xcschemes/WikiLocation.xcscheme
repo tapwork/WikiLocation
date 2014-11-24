@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0600"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DADCCECF1960591300F2996C"
-               BuildableName = "WikiManager.framework"
-               BlueprintName = "WikiManager"
+               BlueprintIdentifier = "DA9ED980195DB9B50061411C"
+               BuildableName = "WikiLocation.app"
+               BlueprintName = "WikiLocation"
                ReferencedContainer = "container:WikiLocation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,13 +32,22 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DADCCED91960591300F2996C"
-               BuildableName = "WikiManagerTests.xctest"
-               BlueprintName = "WikiManagerTests"
+               BlueprintIdentifier = "DA9ED992195DB9B50061411C"
+               BuildableName = "WikiLocationTests.xctest"
+               BlueprintName = "WikiLocationTests"
                ReferencedContainer = "container:WikiLocation.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "DA9ED980195DB9B50061411C"
+            BuildableName = "WikiLocation.app"
+            BlueprintName = "WikiLocation"
+            ReferencedContainer = "container:WikiLocation.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -48,9 +57,24 @@
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "YES"
+      region = "DE">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "DA9ED980195DB9B50061411C"
+            BuildableName = "WikiLocation.app"
+            BlueprintName = "WikiLocation"
+            ReferencedContainer = "container:WikiLocation.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
+      <LocationScenarioReference
+         identifier = "San Francisco, CA, USA"
+         referenceType = "1">
+      </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction
       shouldUseLaunchSchemeArgsEnv = "YES"
@@ -58,6 +82,16 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "DA9ED980195DB9B50061411C"
+            BuildableName = "WikiLocation.app"
+            BlueprintName = "WikiLocation"
+            ReferencedContainer = "container:WikiLocation.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
