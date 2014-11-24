@@ -51,7 +51,7 @@ public class WikiManager : NSObject {
         let fullURLString = kWikilocationBaseURL + path
         let url = NSURL(string: fullURLString)
         
-        self.downloadURL(url: url!) { (data, error) -> Void in
+        self.downloadURL(url: url) { (data, error) -> Void in
             var articles = NSMutableOrderedSet()
             if (data.length > 0) {
                 var error:NSError?
