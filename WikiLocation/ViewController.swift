@@ -60,7 +60,7 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(kCellID) as UITableViewCell
         
         if let article = self.dataSource[indexPath.row] as WikiArticle? {
-            cell.textLabel?.text = article.title
+            cell.textLabel.text = article.title
             cell.detailTextLabel?.text = article.distance
         }
         
