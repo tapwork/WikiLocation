@@ -2,7 +2,7 @@ WikiLocation
 ============
 [![Build Status](http://img.shields.io/travis/tapwork/WikiLocation/master.svg?style=flat)](https://travis-ci.org/tapwork/WikiLocation)
 
-WikiLocation - A geolocation based wikipedia app written in Swift
+####WikiLocation - A geolocation based wikipedia app written in Swift
 
 This little app demonstrates how easy it is to create an iOS app with Swift and the new iOS frameworks.
 What is this app about? As the name implies, it uses your current location and provides nearby Wikipedia articles. (Buildings, lakes and so on). Straight forward. Not too much magic.
