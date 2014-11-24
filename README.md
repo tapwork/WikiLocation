@@ -1,5 +1,6 @@
 WikiLocation
 ============
+[![Build Status](http://img.shields.io/travis/tapwork/WikiLocation/master.svg?style=flat)](https://travis-ci.org/tapwork/WikiLocation)
 
 WikiLocation - A geolocation based wikipedia app written in Swift
 
